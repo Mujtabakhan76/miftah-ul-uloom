@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #faf8f3;
+  --color-bg-dark: #0f1710;
+  --color-primary: #0b3d2e; /* deep Islamic green */
+  --color-primary-light: #145c43;
+  --color-gold: #b8933f;
+  --color-gold-light: #d8bd7a;
+  --color-ink: #1a2620;
+  --color-ink-muted: #5a6b60;
+  --color-border: #e2ddd0;
+  --font-arabic: "Noto Naskh Arabic", "Traditional Arabic", "Scheherazade New", serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-urdu), var(--font-arabic), system-ui, sans-serif;
+}
+
+.dark body {
+  background-color: var(--color-bg-dark);
+  color: #ecf3ee;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+.arabic-text {
+  font-family: var(--font-arabic);
+  line-height: 2.1;
+}
+
+.urdu-text {
+  font-family: var(--font-urdu);
+  line-height: 2.3;
+}
+
+.islamic-pattern-bg {
+  background-image: radial-gradient(circle at 1px 1px, var(--color-gold-light) 1px, transparent 0);
+  background-size: 22px 22px;
+  opacity: 0.08;
+}
+
+mark {
+  background-color: var(--color-gold-light);
+  color: var(--color-primary);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.dark mark {
+  background-color: var(--color-gold);
+  color: #0f1710;
+}
+
+::selection {
+  background-color: var(--color-gold-light);
+  color: var(--color-primary);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  padding: 0.5rem 0.85rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease;
+}
+.btn-outline:hover {
+  border-color: var(--color-gold);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-gold);
+  color: white;
+  padding: 0.5rem 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+.btn-gold:hover {
+  background-color: var(--color-gold-light);
+}
