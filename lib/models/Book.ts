@@ -58,6 +58,15 @@ const BookSchema = new Schema<IBook>(
 );
 
 // Full-text index across metadata + normalized page text for "search all books"
+// language_override: "none" is required here — MongoDB's text index normally
+// reads a field literally named "language" on each document to pick the
+// stemming language, but our schema already has its own "language" field
+// (arabic/urdu/mixed) for a completely different purpose. Without this
+// option, MongoDB tried to use "arabic" as a *stemming* language (which it
+// doesn't support) and rejected every insert with
+// "language override unsupported: arabic". Pointing the override at a
+// field name ("none") that never exists on our documents makes MongoDB
+// always fall back to its default indexing language instead.
 BookSchema.index(
   {
     title: "text",
@@ -70,6 +79,8 @@ BookSchema.index(
   },
   {
     name: "book_fulltext_index",
+    language_override: "none",
+    default_language: "none",
     weights: {
       title: 10,
       arabicTitle: 10,
